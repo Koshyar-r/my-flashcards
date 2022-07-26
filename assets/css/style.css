@@ -230,6 +230,10 @@ hr {
     background-color: #c00404;
 }
 @media (min-width: 320px) and (max-width: 650px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
     .flashcard {
         width: 70vw;
     }
