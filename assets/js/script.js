@@ -15,7 +15,7 @@ for(i = 0 ; i < 1000 ; i++) {
     span.textContent = i
     Numbers.appendChild(span)
 }
-let Num = Numbers.getElementsByTagName('span')
+let Num = Numbers.querySelectorAll('.first-counter span')
 let index = 0
 
 function NextNum() {
@@ -37,7 +37,7 @@ for(j = 0 ; j < 1000 ; j++) {
     SecondNumbers.appendChild(span)
 }
 
-let SecondNum = SecondNumbers.getElementsByTagName('span')
+let SecondNum = SecondNumbers.querySelectorAll('.second-counter span')
 let secondindex = 0
 
 function SecondNextNum() {
