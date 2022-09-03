@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 :root {
     --persian-font: IRANSans;
-    --english-font: 'Poppins', sans-serif;
-    --english-font-weight: 500;
     --persian-font-weight: 600;
 
     --primary-color: #6205ED;
@@ -31,10 +29,10 @@ body, button {
 body {
     background-color: var(--primary-color);
 }
-.fluent__title {
+.fluent__heading {
     color: #FFF;
-    padding-top: 2rem;
     text-align: center;
+    padding-top: 2rem;
 }
 .fluent__container {
     padding-top: 2.5rem;
@@ -48,62 +46,138 @@ body {
 }
 .fluent__flashcard {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
     background-color: #FFF;
     width: 500px;
-    border-radius: 3px;
-    padding: 1.5rem;
-    cursor: pointer;
+    height: 400px;
+    border-radius: 25px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
 }
-.fluent__flashcard-title {
+.fluent__title {
     color: var(--primary-color);
     font-size: 1.5rem;
 }
-.fluent__total-flashcards strong {
-    color: #0aaf62;
-}
-.fluent__todays-flashcards strong {
-    color: #ff0000;
-}
-.fluent__todays-flashcards {
-    margin-bottom: 1.5rem;
-}
-hr {
-    margin-bottom: 1rem;
-}
-.fluent__settings-button {
+.start__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .7rem;
     background-color: var(--primary-color);
     color: #FFF;
-    outline: none;
-    border: none;
+    width: 150px;
+    border-radius: 5px;
     font-size: 1rem;
-    border-radius: 3px;
-    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    margin-bottom: 30px;
     cursor: pointer;
+    transition: all .5s;
+}
+.start__btn i {
+    transform: rotate(180deg);
+}
+.start__btn:hover {
+    gap: 1.2rem;
+    background-color: #FFF;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.fluent__info {
+    display: flex;
+    gap: 3rem;
+    font-size: 1.2rem;
+}
+.fluent__info .first__info, .fluent__info .second__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.fluent__info .first__info p {
+    color: var(--primary-color);
+}
+.fluent__info .second__info p, .fluent__info strong {
+    color: #0c9751;
+}
+.plus__button-wrapper {
+    display: inline-flex;
+    position: absolute;
+    bottom: 1rem;
+    right: 2.1rem;
+}
+.plus__button-wrapper .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+.plus__button-wrapper .icon span {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    display: block;
+    background-color: #FFF;
+    border-radius: 50%;
+    z-index: 2;
+    text-align: center;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+.plus__button-wrapper .icon span i {
+    font-size: 25px;
+    line-height: 60px;
+    color: var(--primary-color);
+}
+.plus__button-wrapper .icon .tooltip {
+    position: absolute;
+    top: 0px;
+    width: 200px;
+    background-color: #FFF;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 18px;
+    font-size: 15px;
+    border-radius: 25px;
+    opacity: 0;
+    pointer-events: none;
     transition: .5s;
 }
-.settings-icon {
-    transition: .5s;
+.plus__button-wrapper .icon:hover .tooltip {
+    top: -70px;
+    opacity: 1;
+    pointer-events: auto;
 }
-.fluent__settings-button:hover .settings-icon {
-    transform: rotate(360deg);
+.plus__button-wrapper .icon .tooltip:before {
+    background-color: #FFF;
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
 }
-.fluent__settings-button:hover {
-    background-color: var(--secondary-color);
+.plus__button-wrapper .icon:hover span, .plus__button-wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
 }
 .fluent__modal {
     display: none;
     background-color: #f1ecec;
     border-radius: 3px;
     padding: 2rem;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
+    width: 700px;
+    z-index: 100;
     transition: 0.5s;
 }
 .fluent__modal-content {
@@ -195,7 +269,36 @@ input::-webkit-outer-spin-button {
         flex-direction: column;
     }
     .fluent__flashcard {
-        width: 70vw;
+        width: 85vw;
+        height: 420px;
+    }
+    .fluent__title {
+        font-size: 4vw;
+    }
+    .start__btn {
+        width: 25vw;
+        font-size: 2.5vw;
+    }
+    .fluent__info {
+        font-size: 3.2vw;
+    }
+    .plus__button-wrapper .icon .tooltip {
+        transition: .5s;
+    }
+    .plus__button-wrapper .icon:hover .tooltip {
+        top: -60px;
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .plus__button-wrapper .icon .tooltip:before {
+        background-color: #FFF;
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        top: 50%;
+        left: 90%;
+        transform: translateX(-50%) rotate(45deg);
     }
     .fluent__modal {
         width: 90vw;
@@ -212,8 +315,19 @@ input::-webkit-outer-spin-button {
         gap: .8rem;
     }
 }
-@media (min-width: 651px) and (max-width: 1074px) {
+@media (min-width: 651px) and (max-width: 1174px) {
     .fluent__flashcard {
         width: 40vw;
+        height: 450px;
+    }
+    .fluent__title {
+        font-size: 1.9vw;
+    }
+    .start__btn {
+        width: 15vw;
+        font-size: 1.5vw;
+    }
+    .fluent__info {
+        font-size: 1.5vw;
     }
 }
